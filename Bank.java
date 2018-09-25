@@ -1,28 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package banking;
-
-/**
- *
- * @author Alumno
- */
+package banking.domain;
+//  @author adanz
 public class Bank {
-
-    private Customers[] customers;
-    private int numOfCustomers;
-
-    public addCustomer(String firstName, String lastName) {
-        return x
-    }
-
-    public getNumberOfCustomers() {
-
-    }
-
-    public getCustomer(int index){
-        
-    }
+   private static Bank bank;                 // = new Bank() ;
+   private Customer[] customers;
+   private int numberOfCustomers;
+   private Bank() {
+      customers = new Customer[10];
+   }
+   static {
+      bank = new Bank();
+   }
+   public static Bank getBank() {
+      return bank;
+   }
+   public void addCustomer(String firstName, String lastName) {
+      customers[numberOfCustomers] = new Customer(firstName, lastName);
+      numberOfCustomers++;
+   }
+   public int getNumOfCustomers() {
+      return numberOfCustomers;
+   }
+   public Customer getCustomer(int index) {
+      return customers[index];
+   }
 }
